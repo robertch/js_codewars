@@ -9,18 +9,18 @@ var totwenty = ["zero","one","two",
 	tohundred = ["twenty","thirty","fourty",
 				"fifty","sixty","seventy","eighty","ninety"],
 	totousend = ["hundred","thousend"],
-	number = n.toString().split("");
-
+    result = [];
 	if(n<20){
 		return totwenty[n];
 	}else{
-		var ret_number = "";
-		for(var i=number.length;i--;){
-			if(number[i]===0){
-				
-			}else{
-			}
-		} 
+		for(var i=0; i < n.toString().length;i++){
+		var digit = parseInt(test.toString().substring(0,test.toString().length-i),10)%10;
+		 if(i===0 && digit>0){
+		  result.push("-"+totwenty[digit]);
+		 }else if(i===1){
+		  result.push(totwenty[digit]);
+		 }
+		}
 	}
 
 
