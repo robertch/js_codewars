@@ -9,11 +9,36 @@ function sumStrings(a,b) {
 	for(var i=0;i < arr.length;i++){
 	   sum+=(parseInt(arr[i],10)+parseInt(brr[i],10))*Math.pow(10,i); 
 	}
-	  var b2 = b.substring(0,Math.abs(diff));
-	  for(var j=0;j < (b.length+diff);j++){
-	   b2+='0';
+	if(a.length < sum.toString.length){
+	  var b_part = b.substring(0,diff);
+	  var val = 0;
+		for(var j=0;j < b_part.length;j++){
+		if(j===0){
+		   val = parseInt(b_part.charAt(b_part.length-j),10)+parseInt(sum.toString().charAt(0),10);
+		   if(val > 0){
+			 b_part = b_part.substring(0,b_part.length-j)+val.toString().charAt(1);	
+			 val = parsInt(val.charAt(0),10);
+			}else{
+			 b_part = b_part.substring(0,b_part.length-j)+val.toString().charAt(0);	
+			}	
+		}else{
+		   val = parseInt(b_part.charAt(b_part.length-j),10)+val;
+		   if(val > 0){
+			 b_part = b_part.substring(0,b_part.length-j)+val.toString().charAt(1);	
+			 val = parsInt(val.charAt(0),10);
+			}else{
+			 b_part = b_part.substring(0,b_part.length-j)+val.toString().charAt(0);	
+			}	
+		}
 	  }
-	  sum+=parseInt(b2,10);
+	}else{
+	 
+	}
+	var b2 = b.substring(0,Math.abs(diff));
+	for(var j=0;j < (b.length+diff);j++){
+	  b2+='0';
+	}
+	sum+=parseInt(b2,10);
   }else if(diff>0){
 	for(var i=0;i < brr.length;i++){
 	   sum+=(parseInt(arr[i],10)+parseInt(brr[i],10))*Math.pow(10,i); 
